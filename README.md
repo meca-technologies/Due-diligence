@@ -64,6 +64,7 @@ wav_out - neural style transfered output wavs
 wav_ref - reference wav for the specific voice style to choose for neural style transfer
 ```
 
+```
 
             +-------------------+        +------------------+
 TTS Input   | Content Encoder    |        | Style Encoder     |    Reference Speaker
@@ -86,3 +87,4 @@ TTS Input   | Content Encoder    |        | Style Encoder     |    Reference Spe
                              Stylized Output
                                (Voice.wav)
 
+```
