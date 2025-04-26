@@ -63,3 +63,26 @@ wav_in  - tts input - Content
 wav_out - neural style transfered output wavs
 wav_ref - reference wav for the specific voice style to choose for neural style transfer
 ```
+
+
+            +-------------------+        +------------------+
+TTS Input   | Content Encoder    |        | Style Encoder     |    Reference Speaker
+(Voice.wav) | (1D CNN over Wav)   |        | (1D CNN over Wav) |    (Voice.wav)
+            +---------+----------+        +---------+--------+
+                      |                           |
+                Content Embedding             Style Embedding
+                      |                           |
+                      +-------------+-------------+
+                                    |
+                               Fusion Module
+                       (AdaIN-like or FiLM over embeddings)
+                                    |
+                         +----------v-----------+
+                         | Waveform Decoder      |
+                         | (Upsampling 1D ConvNet |
+                         |   or Diffusion Model)  |
+                         +----------+------------+
+                                    |
+                             Stylized Output
+                               (Voice.wav)
+
